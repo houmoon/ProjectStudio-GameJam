@@ -1,9 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Dynamic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    //플레이어 클래스의 싱글톤 인스턴스 생성.
+    public static PlayerController Instance;
+    private void Awake()    {Instance = this;}
+    /// //////////////////////////////////////////////////////////////////
+
+
     Animator animator;
     Rigidbody2D rigid;
     public float speed;
