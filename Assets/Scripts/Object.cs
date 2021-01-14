@@ -21,7 +21,11 @@ public class Object : MonoBehaviour
         if(this.Interactable && this.hasEntered && this.callback != null)
         {
             if(Input.GetButtonDown("Submit"))
-            this.callback();
+            {
+                this.GetComponent<Collider2D>().enabled = false;
+                this.callback();
+            }
+            
         }
     }
 
