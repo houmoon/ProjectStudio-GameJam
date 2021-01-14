@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using TMPro;
 
-public class SmallTree : Object
+public class BigTree : Object
 {
+    public GameObject SmallTree;
     SpriteRenderer sprite;
 
     private void Start()
@@ -15,7 +17,7 @@ public class SmallTree : Object
 
     private void LateUpdate()
     {
-        this.Interactable = PlayerController.Instance.GetShovel;
+        this.Interactable = PlayerController.Instance.GetAxe;
     }
 
     public void Cut()
@@ -25,8 +27,12 @@ public class SmallTree : Object
 
         sprite.transform.DOMoveY(transform.position.y + 0.4f,0.7f).SetEase(Ease.OutQuart);
         sprite.transform.DORotate(new Vector3(0,0,65),0.6f).SetEase(Ease.OutQuart);
-        sprite.DOFade(0,0.5f).OnComplete(() =>  gameObject.SetActive(false) );
+        sprite.DOFade(0,0.5f).OnComplete(() => FinishCutting() );
+    }
 
-        Debug.Log("나무 짤림");
+    void FinishCutting()
+    {
+        SmallTree.SetActive(true);
+        gameObject.SetActive(false);
     }
 }

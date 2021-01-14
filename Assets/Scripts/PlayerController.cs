@@ -11,6 +11,13 @@ public class PlayerController : MonoBehaviour
     private void Awake()    {Instance = this;}
     /// //////////////////////////////////////////////////////////////////
 
+    public bool GetAxe=false;
+    public bool GetShovel=false;
+
+    //디버그용 메서드
+    public void SetAxe(bool boolean) { GetAxe = boolean; }
+    public void SetShovel(bool boolean) { GetShovel = boolean; }
+    
 
     Animator animator;
     Rigidbody2D rigid;
