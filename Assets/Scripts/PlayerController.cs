@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetButtonDown("Jump"))
         {
             rigid.AddForce(Vector2.up*jumpPower,ForceMode2D.Impulse);
             Debug.Log("jump");
