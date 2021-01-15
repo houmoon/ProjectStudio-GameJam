@@ -18,7 +18,7 @@ public class BirdGun : MonoBehaviour
 
         shootpoint.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonUp(0))
         {
             if (PlayerController.Instance.Return_SpriteFlipX)
             {

@@ -10,8 +10,11 @@ public class Bullet : MonoBehaviour
     {
         rigid.velocity = transform.right * speed;
     }
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if(collision.tag == "Ground")
+        {
+            Destroy(gameObject);
+        }
     }
 }
