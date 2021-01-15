@@ -205,4 +205,23 @@ public class PlayerController : MonoBehaviour
             isWall = false;
         }
     }
+
+    #region 리턴용
+    bool Return_isGround()
+    {
+        return isGround;
+    }
+    bool Return_isWall()
+    {
+        return isWall;
+    }
+    bool Return_isStarPiece()
+    {
+        return isStarPiece;
+    }
+    bool Return_isSit()
+    {
+        return isSit;
+    }
+    #endregion
 }
