@@ -226,5 +226,8 @@ public class PlayerController : MonoBehaviour
 
     public int Return_HP { get { return HP; } }
 
+    public bool Return_SpriteFlipX { get { return sprite.flipX; } }
+
+
     #endregion
 }
