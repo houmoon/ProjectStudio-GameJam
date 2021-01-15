@@ -14,11 +14,14 @@ public class PlayerController : MonoBehaviour
     public bool GetAxe=false;
     public bool GetShovel=false;
     public bool GetSpreader = false;
+    public int SpreaderAmount = 0;
 
     //디버그용 메서드
     public void SetAxe(bool boolean) { GetAxe = boolean; }
     public void SetShovel(bool boolean) { GetShovel = boolean; }
     public void SetSpreader(bool boolean) { GetSpreader = boolean; }
+
+    public void SetSpreaderAmount(int amount) { SpreaderAmount = amount; }
     
     SpriteRenderer sprite;
     Animator animator;
@@ -143,11 +146,13 @@ public class PlayerController : MonoBehaviour
 
     void Ground()
     {
-        Vector2 pos = new Vector2(this.transform.position.x, this.transform.position.y);
-        RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.down, 0.02f, groundLayer);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.02f, LayerMask.GetMask("Ground"));
 
-        if (hit.collider != null && hit.collider.tag == "Ground") //땅에 닿으면? 트루 리턴
+        Debug.DrawRay(transform.position,Vector3.down,Color.red);
+
+        if (hit.collider != null) //땅에 닿으면? 트루 리턴
         {
+            Debug.Log("Hit");
             rigid.velocity = new Vector2(rigid.velocity.x, 0.0f);
             isGround = true;
             animator.SetBool("isGround", true);

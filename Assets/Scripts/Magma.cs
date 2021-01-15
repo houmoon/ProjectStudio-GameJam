@@ -22,9 +22,14 @@ public class Magma : Object
 
     void SetDisable()
     {
-        collider.enabled = false;
-        particle.Stop();
-        StartCoroutine(ReadytoBack());
+        if(PlayerController.Instance.SpreaderAmount > 0)
+        {
+            collider.enabled = false;
+            particle.Stop();
+            PlayerController.Instance.SpreaderAmount--;
+            StartCoroutine(ReadytoBack());
+        }
+        
     }
 
     IEnumerator ReadytoBack()
