@@ -20,6 +20,12 @@ TextureImporter:
   - first:
       213: 8670621975879082045
     second: LittlePrince_01_f_5
+  - first:
+      213: -1688263893093607180
+    second: LittlePrince_01_f_6
+  - first:
+      213: 624842199432518797
+    second: LittlePrince_01_f_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -205,6 +211,69 @@ TextureImporter:
       bones: []
       spriteID: c2b6a60751f7d8340800000000000000
       internalID: 4867686502314437420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LittlePrince_01_f_5
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.75, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d30e7f58fbc345870800000000000000
+      internalID: 8670621975879082045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LittlePrince_01_f_6
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.75, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f8990d1fe41298e0800000000000000
+      internalID: -1688263893093607180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LittlePrince_01_f_7
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 64
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.75, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8c59d97ba2eba800800000000000000
+      internalID: 624842199432518797
       vertices: []
       indices: 
       edges: []
