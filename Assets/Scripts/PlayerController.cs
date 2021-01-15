@@ -133,7 +133,7 @@ public class PlayerController : MonoBehaviour
         {
             isSit = true;
         }
-        if (Input.GetKeyUp(KeyCode.LeftControl))
+        else
         {
             isSit = false;
         }
