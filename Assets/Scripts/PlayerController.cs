@@ -20,18 +20,27 @@ public class PlayerController : MonoBehaviour
     public void SetAxe(bool boolean) { GetAxe = boolean; }
     public void SetShovel(bool boolean) { GetShovel = boolean; }
     public void SetSpreader(bool boolean) { GetSpreader = boolean; }
-
     public void SetSpreaderAmount(int amount) { SpreaderAmount = amount; }
     
     SpriteRenderer sprite;
     Animator animator;
     Rigidbody2D rigid;
     BoxCollider2D boxcol;
+
+    //플레이어 체력
+    private int HP;
+    [SerializeField] private int MaxHP;
+    public void SetHP(int amount) { HP = amount; }
+    public void IncreaseHP(int amount) { HP += amount; }
+
+    //플레이어 이동 관련 변수
     public float speed;
     float firstspeed;
     public float jumpPower;
     public LayerMask groundLayer;
     float h, v;
+
+    //충돌 판정 관련 변수
     bool isGround = false;
     bool isWall = false;
     bool isStarPiece = false;
@@ -39,6 +48,7 @@ public class PlayerController : MonoBehaviour
 
     Vector2 boxcolfisrt_offset;
     Vector2 boxcolfisrt_size;
+
 
     void Start()
     {
@@ -206,22 +216,15 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    #region 리턴용
-    bool Return_isGround()
-    {
-        return isGround;
-    }
-    bool Return_isWall()
-    {
-        return isWall;
-    }
-    bool Return_isStarPiece()
-    {
-        return isStarPiece;
-    }
-    bool Return_isSit()
-    {
-        return isSit;
-    }
+    #region 읽기 전용 변수
+    public bool Return_isGround { get { return isGround; } }
+
+    public bool Return_isWall { get {return isWall; } }
+    
+    public bool Return_isStarPiece { get { return isStarPiece; } }
+    public bool Return_isSit { get { return isSit; } }
+
+    public int Return_HP { get { return HP; } }
+
     #endregion
 }
