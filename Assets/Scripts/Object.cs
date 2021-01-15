@@ -46,3 +46,4 @@ public class Object : MonoBehaviour
         DisplayIndicator(this.hasEntered);
     }
 }
+

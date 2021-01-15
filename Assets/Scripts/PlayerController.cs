@@ -13,11 +13,13 @@ public class PlayerController : MonoBehaviour
 
     public bool GetAxe=false;
     public bool GetShovel=false;
+    public bool GetSpreader = false;
 
     //디버그용 메서드
     public void SetAxe(bool boolean) { GetAxe = boolean; }
     public void SetShovel(bool boolean) { GetShovel = boolean; }
-    
+    public void SetSpreader(bool boolean) { GetSpreader = boolean; }
+
     SpriteRenderer sprite;
     Animator animator;
     Rigidbody2D rigid;
