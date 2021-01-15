@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
     private void Awake()    {Instance = this;}
     /// //////////////////////////////////////////////////////////////////
 
-<<<<<<< Updated upstream
     public bool GetAxe=false;
     public bool GetShovel=false;
 
@@ -19,10 +18,7 @@ public class PlayerController : MonoBehaviour
     public void SetAxe(bool boolean) { GetAxe = boolean; }
     public void SetShovel(bool boolean) { GetShovel = boolean; }
     
-
-=======
     SpriteRenderer sprite;
->>>>>>> Stashed changes
     Animator animator;
     Rigidbody2D rigid;
     public float speed;
