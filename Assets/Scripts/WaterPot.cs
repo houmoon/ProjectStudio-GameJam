@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaterPot : MonoBehaviour
+public class WaterPot : Object
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        Interactable = true;
+        SetCallBack(FillSpreader);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void FillSpreader()
     {
-        
+        if(PlayerController.Instance.GetSpreader)
+        PlayerController.Instance.SpreaderAmount = 5;
     }
 }
