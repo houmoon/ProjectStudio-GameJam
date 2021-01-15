@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Ghost : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if(collision.gameObject.tag == "Player")
+        {
+            if (PlayerController.Instance.Return_isSit == true)
+                return;
+            PlayerController.Instance.IncreaseHP(-1);
+        }
     }
 }
