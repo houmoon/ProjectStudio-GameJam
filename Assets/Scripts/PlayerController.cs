@@ -18,21 +18,37 @@ public class PlayerController : MonoBehaviour
     public void SetAxe(bool boolean) { GetAxe = boolean; }
     public void SetShovel(bool boolean) { GetShovel = boolean; }
     
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
     SpriteRenderer sprite;
     Animator animator;
     Rigidbody2D rigid;
+    BoxCollider2D boxcol;
     public float speed;
+    float firstspeed;
     public float jumpPower;
     public LayerMask groundLayer;
     float h, v;
     bool isGround = false;
     bool isWall = false;
+    bool isStarPiece = false;
+    bool isSit=false;
+
+    Vector2 boxcolfisrt_offset;
+    Vector2 boxcolfisrt_size;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+        boxcol = GetComponent<BoxCollider2D>();
+
+        boxcolfisrt_offset = boxcol.offset;
+        boxcolfisrt_size = boxcol.size;
+        firstspeed = speed;
     }
 
     void FixedUpdate()
@@ -42,6 +58,32 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGround)
             Jump();
         Wall();
+        sit();
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "starpiece")
+        {
+            Debug.Log("isstarpiece"+isStarPiece);
+
+            isStarPiece = true;
+        }
+        if (collision.tag == "ClearObject")
+        {
+            //clear!
+        }
+
+    }
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "starpiece")
+        {
+            Debug.Log("isstarpiece" + isStarPiece);
+
+            isStarPiece = false;
+        }
+
     }
 
     void Move()
@@ -68,8 +110,37 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
-        
+        if (isStarPiece)
+            rigid.AddForce(Vector2.up * jumpPower*1.5f, ForceMode2D.Impulse);
+        else
+            rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+    }
+
+    void sit()
+    {
+        if (Input.GetKey(KeyCode.LeftControl))
+        {
+            isSit = true;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            isSit = false;
+        }
+
+        if (isSit)
+        {
+            animator.SetBool("isSit", true);
+            boxcol.offset = new Vector2(boxcolfisrt_offset.x, boxcolfisrt_offset.y / 2);
+            boxcol.size = new Vector2(boxcolfisrt_size.x, boxcolfisrt_size.y / 2);
+            speed = firstspeed / 2;
+        }
+        else
+        {
+            animator.SetBool("isSit", false);
+            boxcol.offset = new Vector2(boxcolfisrt_offset.x, boxcolfisrt_offset.y);
+            boxcol.size = new Vector2(boxcolfisrt_size.x, boxcolfisrt_size.y);
+            speed = firstspeed;
+        }
     }
 
     void Ground()
