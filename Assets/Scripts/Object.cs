@@ -36,14 +36,21 @@ public class Object : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        this.hasEntered = collision.gameObject.CompareTag("Player");
-        DisplayIndicator(this.hasEntered);
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            this.hasEntered = true;
+            UIElement.Instance.FocusInteraction(transform);
+        }
+        
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        this.hasEntered = collision.gameObject.CompareTag("Player");
-        DisplayIndicator(this.hasEntered);
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            this.hasEntered = false;
+            UIElement.Instance.DefocusInteraction();
+        }
     }
 }
 

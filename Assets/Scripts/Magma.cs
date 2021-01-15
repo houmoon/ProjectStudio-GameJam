@@ -27,6 +27,7 @@ public class Magma : Object
             collider.enabled = false;
             particle.Stop();
             PlayerController.Instance.SpreaderAmount--;
+            UIElement.Instance.UpdateSpreaderAmount();
             StartCoroutine(ReadytoBack());
         }
         

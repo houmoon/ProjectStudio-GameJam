@@ -6,6 +6,7 @@ public class WaterPot : Object
 {
     private void Start()
     {
+        UIElement.Instance.UpdateSpreaderAmount();
         Interactable = true;
         SetCallBack(FillSpreader);
     }
@@ -14,5 +15,7 @@ public class WaterPot : Object
     {
         if(PlayerController.Instance.GetSpreader)
         PlayerController.Instance.SpreaderAmount = 5;
+
+        UIElement.Instance.UpdateSpreaderAmount();
     }
 }
