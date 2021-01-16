@@ -10,7 +10,10 @@ public class Lamp : MonoBehaviour
 
     IEnumerator LightOn()
     {
-        for(int i = 0; i<5; i++)
+
+        SoundManager.instance.SoundPlay("Lamp_On");
+
+        for (int i = 0; i<5; i++)
         {
             if(Light.activeSelf == true)
                 Light.SetActive(false);
