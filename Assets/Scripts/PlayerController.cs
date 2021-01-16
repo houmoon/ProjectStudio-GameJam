@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     //플레이어 클래스의 싱글톤 인스턴스 생성.
     public static PlayerController Instance;
-    private void Awake()    {Instance = this;}
+    private void Awake()    {  HP = MaxHP; Instance = this;}
     /// //////////////////////////////////////////////////////////////////
 
     public bool GetAxe=false;
@@ -30,8 +30,8 @@ public class PlayerController : MonoBehaviour
     //플레이어 체력
     private int HP;
     [SerializeField] private int MaxHP;
-    public void SetHP(int amount) { HP = amount; }
-    public void IncreaseHP(int amount) { HP += amount; }
+    public void SetHP(int amount) { HP = amount; UIElement.Instance.hpContainer.UpdateHPUI(); }
+    public void IncreaseHP(int amount) { HP += amount; UIElement.Instance.hpContainer.UpdateHPUI(); }
 
     //플레이어 이동 관련 변수
     public float speed;

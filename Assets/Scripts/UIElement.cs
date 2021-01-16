@@ -9,6 +9,7 @@ public class UIElement : MonoBehaviour
     public static UIElement Instance;
     private void Awake()    {Instance = this;}
 
+    public HPContainer hpContainer;
     public Image InteractionIcon;
     public Text Debug_Spreader;
 

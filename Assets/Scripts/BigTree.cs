@@ -24,6 +24,7 @@ public class BigTree : Object
     {
         Interactable = false;
         hasEntered = false;
+        this.GetComponent<Collider2D>().enabled = false;
 
         sprite.transform.DOMoveY(transform.position.y + 0.4f,0.7f).SetEase(Ease.OutQuart);
         sprite.transform.DORotate(new Vector3(0,0,65),0.6f).SetEase(Ease.OutQuart);

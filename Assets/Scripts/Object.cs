@@ -22,7 +22,6 @@ public class Object : MonoBehaviour
         {
             if(Input.GetButtonDown("Submit"))
             {
-                this.GetComponent<Collider2D>().enabled = false;
                 this.callback();
             }
             
