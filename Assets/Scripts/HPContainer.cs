@@ -25,6 +25,8 @@ public class HPContainer : MonoBehaviour
 
     public void UpdateHPUI()
     {
+        displayempty = false;
+
         currentHP = PlayerController.Instance.Return_HP;
 
         if(currentHP == 0)

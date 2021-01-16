@@ -39,4 +39,10 @@ public class Magma : Object
         particle.Play();
         collider.enabled = true;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        PlayerController.Instance.IncreaseHP(-1);
+        Debug.Log("aa");
+    }
 }

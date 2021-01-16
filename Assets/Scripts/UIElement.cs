@@ -10,12 +10,19 @@ public class UIElement : MonoBehaviour
     private void Awake()    {Instance = this;}
 
     public HPContainer hpContainer;
+    public ItemContainer itemcontainer;
+
     public Image InteractionIcon;
-    public Text Debug_Spreader;
+    public Text SpreaderText;
 
     public void UpdateSpreaderAmount()
     {
-        Debug_Spreader.text = string.Format("물뿌리개 양 : {0}",PlayerController.Instance.SpreaderAmount);
+        SpreaderText.text = PlayerController.Instance.SpreaderAmount.ToString();
+    }
+
+    public void Debug_ItemAdd(int a)
+    {
+        PlayerController.Instance.GetItem((ItemType)a);
     }
 
     public void FocusInteraction(Transform target)

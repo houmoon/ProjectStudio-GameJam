@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Runtime.CompilerServices;
+using TMPro;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -15,11 +17,6 @@ public class PlayerController : MonoBehaviour
     public bool GetShovel=false;
     public bool GetSpreader = false;
     public int SpreaderAmount = 0;
-
-    //디버그용 메서드
-    public void SetAxe(bool boolean) { GetAxe = boolean; }
-    public void SetShovel(bool boolean) { GetShovel = boolean; }
-    public void SetSpreader(bool boolean) { GetSpreader = boolean; }
     public void SetSpreaderAmount(int amount) { SpreaderAmount = amount; }
     
     SpriteRenderer sprite;
@@ -162,7 +159,6 @@ public class PlayerController : MonoBehaviour
 
         if (hit.collider != null) //땅에 닿으면? 트루 리턴
         {
-            Debug.Log("Hit");
             rigid.velocity = new Vector2(rigid.velocity.x, 0.0f);
             isGround = true;
             animator.SetBool("isGround", true);
@@ -196,7 +192,6 @@ public class PlayerController : MonoBehaviour
         }
         else if (hit2.collider != null && hit2.collider.tag == "Ground")
         {
-            Debug.Log("that is Wall!!");
             if (Input.GetKey(KeyCode.W))
             {
                 rigid.gravityScale = 0;
@@ -204,16 +199,33 @@ public class PlayerController : MonoBehaviour
                 sprite.flipX = true;
                 transform.Translate(0, v, 0);
                 animator.SetBool("isWall", true);
-                Debug.Log("ONNN Wall!!");
             }
         }
         else //if (Input.GetKeyUp(KeyCode.W))
         {
             rigid.gravityScale = 1;
             animator.SetBool("isWall", false);
-            Debug.Log("no Wall");
             isWall = false;
         }
+    }
+
+    public void GetItem(ItemType type)
+    {
+        switch(type)
+        {
+            case ItemType.SHOVEL:
+                GetShovel = true;
+                break;
+            case ItemType.SPREADER:
+                GetSpreader = true;
+                break;
+            case ItemType.AXE:
+                GetAxe = true;
+                break;
+        }
+
+        UIElement.Instance.itemcontainer.Add(type);
+
     }
 
     #region 읽기 전용 변수
