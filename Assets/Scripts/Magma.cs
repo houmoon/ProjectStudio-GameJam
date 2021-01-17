@@ -7,6 +7,7 @@ public class Magma : Object
     public float timer = 3.0f;
     ParticleSystem particle;
     public ObjectPooler effectpooler;
+    public AudioSource ignitsound,extingshsound;
     GameObject effect;
 
     Collider2D collider;
@@ -33,6 +34,7 @@ public class Magma : Object
             effect = effectpooler.GetPooledObject();
             effect.transform.position = transform.position;
             effect.SetActive(true);
+            extingshsound.Play();
 
             PlayerController.Instance.SpreaderAmount--;
             UIElement.Instance.UpdateSpreaderAmount();
@@ -45,6 +47,7 @@ public class Magma : Object
     {
         yield return new WaitForSeconds(timer);
         particle.Play();
+        ignitsound.Play();
         collider.enabled = true;
     }
 
