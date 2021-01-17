@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public enum ItemType
 {
-    SHOVEL=0,SPREADER=1,AXE=2
+    SHOVEL=0,SPREADER=1,AXE=2,GLASS=3
 }
 
 public class ItemContainer : MonoBehaviour
 {
-    public RectTransform Shovel,Spreader,Axe;
+    public RectTransform Shovel,Spreader,Axe,Glass;
 
     public void Add(ItemType type)
     {
@@ -25,16 +25,20 @@ public class ItemContainer : MonoBehaviour
             case ItemType.AXE:
                 AddUI(ref Axe);
                 break;
+            case ItemType.GLASS:
+                AddUI(ref Glass);
+                break;
         }
     }
 
     void AddUI(ref RectTransform target)
     {
-        for(int i=0;i<3;i++)
+        for(int i=0;i< transform.childCount;i++)
         {
             if(transform.GetChild(i).childCount <= 0)
             {
                 target.transform.SetParent(transform.GetChild(i));
+                transform.GetChild(i).gameObject.SetActive(true);
                 target.anchoredPosition = Vector2.zero;
                 return;
             }

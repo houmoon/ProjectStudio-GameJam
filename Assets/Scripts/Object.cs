@@ -9,7 +9,7 @@ public class Object : MonoBehaviour
 
     //콜백함수 정의.
     public delegate void Callback();
-    private Callback callback = null;
+    protected Callback callback = null;
 
     public void SetCallBack(Callback cal)
     {

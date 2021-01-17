@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices.ComTypes;
 using TMPro;
 using UnityEditorInternal;
 using UnityEngine;
@@ -16,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public bool GetAxe=false;
     public bool GetShovel=false;
     public bool GetSpreader = false;
+    public bool GetGlass = false;
     public int SpreaderAmount = 0;
     public void SetSpreaderAmount(int amount) { SpreaderAmount = amount; }
     
@@ -221,6 +223,9 @@ public class PlayerController : MonoBehaviour
                 break;
             case ItemType.AXE:
                 GetAxe = true;
+                break;
+            case ItemType.GLASS:
+                GetGlass = true;
                 break;
         }
 

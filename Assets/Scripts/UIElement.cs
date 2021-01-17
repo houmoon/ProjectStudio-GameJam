@@ -27,10 +27,9 @@ public class UIElement : MonoBehaviour
 
     public void FocusInteraction(Transform target)
     {
-        InteractionIcon.rectTransform.anchoredPosition = Camera.main.WorldToScreenPoint(target.position);
-
+        InteractionIcon.transform.position = target.position;
         InteractionIcon.gameObject.SetActive(true);
-        InteractionIcon.DOFade(1,0.25f);
+        InteractionIcon.DOFade(1,0f);
     }
 
     public void DefocusInteraction()
