@@ -12,15 +12,20 @@ public class TitleStageButton : MonoBehaviour
     [SerializeField]
     Stage StageProperties;
 
-    public void Start()
+    public void OnEnable()
     {
+        if(StageManager.Instance.stages[0].Index == 0)
+        StageManager.Instance.stages[StageProperties.Index - 1] = StageProperties;
+        else
+        StageProperties = StageManager.Instance.stages[StageProperties.Index - 1];
+        
         IndexText = transform.GetChild(0).GetComponent<Text>();
         IndexText.text = this.StageProperties.Index.ToString();
     }
 
     public void DebugProperties()
     {
-        Debug.Log(this.StageProperties.Index + ", " + this.StageProperties.isCleared + ", " + this.StageProperties.SceneName);
+        SceneManager.LoadScene(this.StageProperties.SceneName);
     }
 
 

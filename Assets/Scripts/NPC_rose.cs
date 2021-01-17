@@ -7,6 +7,7 @@ using DG.Tweening;
 public class NPC_rose : Object
 {
     public GameObject arrow;
+    public GameObject Portal;
     public Sprite RoseWithCover;
     public Text dialog;
     public List<string> dialogs;
@@ -43,7 +44,8 @@ public class NPC_rose : Object
                 dialognum = 2;
                 break;
             case 3:
-                GetComponent<Image>().sprite = RoseWithCover;
+                GetComponent<SpriteRenderer>().sprite = RoseWithCover;
+                Portal.SetActive(true);
                 arrow.SetActive(false);
                 dialog.text = string.Empty;
                 dialog.DOText(dialogs[3],0.5f).OnComplete(() => arrow.SetActive(true));
